@@ -1,4 +1,5 @@
 from tabulate import tabulate
+
 board = [
     [5, 3, " ", " ", 7, " ", " ", " ", " "],
     [6, " ", " ", 1, 9, 5, " ", " ", " "],
@@ -11,8 +12,8 @@ board = [
     [" ", " ", " ", " ", 8, " ", " ", 7, 9]
 ]
 
-
 print(tabulate(board, tablefmt="fancy_grid"))
+
 
 def main():
     tries = 0
@@ -40,7 +41,7 @@ def main():
             check_row(board[row-1], number)
             check_column(column-1, number)
             check_square(row-1, column-1, number)
-            
+
             board[row-1][column-1] = number
 
         except ValueError:
