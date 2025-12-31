@@ -1,19 +1,18 @@
+from tabulate import tabulate
 board = [
-    [5, 3, ".", ".", 7, ".", ".", ".", "."],
-    [6, ".", ".", 1, 9, 5, ".", ".", "."],
-    [".", 9, 8, ".", ".", ".", ".", 6, "."],
-    [8, ".", ".", ".", 6, ".", ".", ".", 3],
-    [4, ".", ".", 8, ".", 3, ".", ".", 1],
-    [7, ".", ".", ".", 2, ".", ".", ".", 6],
-    [".", 6, ".", ".", ".", ".", 2, 8, "."],
-    [".", ".", ".", 4, 1, 9, ".", ".", 5],
-    [".", ".", ".", ".", 8, ".", ".", 7, 9]
+    [5, 3, " ", " ", 7, " ", " ", " ", " "],
+    [6, " ", " ", 1, 9, 5, " ", " ", " "],
+    [" ", 9, 8, " ", " ", " ", " ", 6, " "],
+    [8, " ", " ", " ", 6, " ", " ", " ", 3],
+    [4, " ", " ", 8, " ", 3, " ", " ", 1],
+    [7, " ", " ", " ", 2, " ", " ", " ", 6],
+    [" ", 6, " ", " ", " ", " ", 2, 8, " "],
+    [" ", " ", " ", 4, 1, 9, " ", " ", 5],
+    [" ", " ", " ", " ", 8, " ", " ", 7, 9]
 ]
 
-for row in board:
-            for k in row:
-                print(k, end=" ")
-            print()
+
+print(tabulate(board, tablefmt="fancy_grid"))
 
 def main():
     tries = 0
@@ -47,10 +46,7 @@ def main():
         except ValueError:
             print("number already in row/column/square!")
             tries += 1
-        for row in board:
-            for k in row:
-                print(k, end=" ")
-            print()
+        print(tabulate(board, tablefmt="fancy_grid"))
         print(f"Tries: {tries}")
         if check_win():
             print("You win!, have a tutuca 🥜🥜🥜")
@@ -87,7 +83,7 @@ def check_square(selected_r, selected_c, selected_n):
 def check_win():
     for r in board:
         for c in r:
-            if c != ".":
+            if c != " ":
                 continue
             else:
                 return False
